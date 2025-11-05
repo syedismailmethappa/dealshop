@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
-import { StoreFilter } from "@/components/StoreFilter";
 import { ProductCard } from "@/components/ProductCard";
-import { Search, TrendingUp } from "lucide-react";
+import { Search, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import heroBanner from "@/assets/hero-banner.jpg";
-import { products } from "@/data/products";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { getProductsByStore } from "@/data/products";
 
-const Index = () => {
+const MyntraProducts = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const myntraProducts = getProductsByStore("myntra");
 
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = myntraProducts.filter((product) => {
     const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          product.category.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesSearch;
@@ -20,48 +21,42 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-90"
-          style={{ 
-            backgroundImage: `url(${heroBanner})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div className="relative container mx-auto px-4 py-20 md:py-32">
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-              Discover Best Deals Across Top Stores
-            </h1>
-            <p className="text-lg md:text-xl mb-8 opacity-95">
-              Compare prices from Amazon, Myntra, and Meesho - All in one place
-            </p>
-            <div className="flex gap-4 justify-center items-center">
-              <TrendingUp className="w-6 h-6" />
-              <span className="text-sm font-medium">Trending Products Updated Daily</span>
+      {/* Myntra Header */}
+      <section className="bg-gradient-to-r from-[#EE5F73] to-[#FF8FA2] text-white py-12">
+        <div className="container mx-auto px-4">
+          <Button variant="secondary" size="sm" asChild className="mb-4">
+            <Link to="/">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to All Products
+            </Link>
+          </Button>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
+              <span className="text-2xl font-bold text-[#EE5F73]">M</span>
+            </div>
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold">Myntra Products</h1>
+              <p className="text-lg opacity-95">Explore trending fashion and lifestyle products</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Search & Filter Section */}
-      <section className="sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b shadow-sm">
+      {/* Search Section */}
+      <section className="sticky top-16 z-40 bg-background/95 backdrop-blur-sm border-b shadow-sm">
         <div className="container mx-auto px-4 py-6">
-          <div className="max-w-md mx-auto mb-6">
+          <div className="max-w-md mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
               <Input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Search Myntra products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
               />
             </div>
           </div>
-          <StoreFilter />
         </div>
       </section>
 
@@ -69,7 +64,7 @@ const Index = () => {
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-foreground mb-2">
-            All Products
+            All Myntra Products
           </h2>
           <p className="text-muted-foreground">
             Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
@@ -78,7 +73,7 @@ const Index = () => {
 
         {filteredProducts.length === 0 ? (
           <div className="text-center py-20">
-            <p className="text-xl text-muted-foreground">No products found. Try adjusting your filters.</p>
+            <p className="text-xl text-muted-foreground">No products found. Try adjusting your search.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -100,4 +95,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default MyntraProducts;
