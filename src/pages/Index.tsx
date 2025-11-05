@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigation } from "@/components/Navigation";
 import { StoreFilter } from "@/components/StoreFilter";
 import { ProductCard } from "@/components/ProductCard";
 import { Search, TrendingUp } from "lucide-react";
@@ -94,6 +95,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div 
