@@ -1,3 +1,4 @@
+import myn from '../assets/myn.jpg'
 export interface Product {
   id: number;
   title: string;
@@ -47,9 +48,9 @@ export const products: Product[] = [
   },
   {
     id: 5,
-    title: "Leather Casual Shoes for Men",
-    price: "₹1,299",
-    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&q=80",
+    title: "HRX by Hrithik Roshan Unisex Back To School Shoes",
+    price: "₹999",
+  image: myn,
     store: "myntra",
     affiliateLink: "https://myntr.it/4F2uIFi",
     category: "Footwear",
