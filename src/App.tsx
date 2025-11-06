@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Payment from "./pages/Payment";
-import AmazonProducts from "./pages/FlipkartProducts";
+import FlipkartProducts from "./pages/FlipkartProducts";
 import MyntraProducts from "./pages/MyntraProducts";
 import MeeshoProducts from "./pages/MeeshoProducts";
 import NotFound from "./pages/NotFound";
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/payment" element={<Payment />} />
-          <Route path="/amazon" element={<AmazonProducts />} />
+          <Route path="/Flipkart" element={<FlipkartProducts />} />
           <Route path="/myntra" element={<MyntraProducts />} />
           <Route path="/meesho" element={<MeeshoProducts />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
