@@ -13,7 +13,7 @@ interface ProductCardProps {
 }
 
 const storeColors = {
-  amazon: "bg-[#FF9900] text-white",
+  Flipkart: "bg-[#FF9900] text-white",
   myntra: "bg-[#EE5F73] text-white",
   meesho: "bg-[#9F2089] text-white",
 };

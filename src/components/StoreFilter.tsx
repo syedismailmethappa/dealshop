@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const stores = [
   { id: "all", name: "All Stores", icon: Package, path: "/" },
-  { id: "amazon", name: "Amazon", icon: ShoppingBag, path: "/amazon" },
+  { id: "Flipkart", name: "Flipkart", icon: ShoppingBag, path: "/Flipkart" },
   { id: "myntra", name: "Myntra", icon: Store, path: "/myntra" },
   { id: "meesho", name: "Meesho", icon: Package, path: "/meesho" },
 ];

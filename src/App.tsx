@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Payment from "./pages/Payment";
-import AmazonProducts from "./pages/AmazonProducts";
+import AmazonProducts from "./pages/FlipkartProducts";
 import MyntraProducts from "./pages/MyntraProducts";
 import MeeshoProducts from "./pages/MeeshoProducts";
 import NotFound from "./pages/NotFound";

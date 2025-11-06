@@ -4,7 +4,7 @@ export interface Product {
   title: string;
   price: string;
   image: string;
-  store: "amazon" | "myntra" | "meesho";
+  store: "Flipkart" | "myntra" | "meesho";
   affiliateLink: string;
   category: string;
 }
@@ -15,8 +15,8 @@ export const products: Product[] = [
     title: "Wireless Bluetooth Headphones with Noise Cancellation",
     price: "₹2,999",
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
-    store: "amazon",
-    affiliateLink: "https://amazon.in",
+    store: "Flipkart",
+    affiliateLink: "https://Flipkart.in",
     category: "Electronics",
   },
   {
@@ -42,8 +42,8 @@ export const products: Product[] = [
     title: "Smart Watch with Fitness Tracker",
     price: "₹3,499",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
-    store: "amazon",
-    affiliateLink: "https://amazon.in",
+    store: "Flipkart",
+    affiliateLink: "https://Flipkart.in",
     category: "Electronics",
   },
   {
@@ -69,8 +69,8 @@ export const products: Product[] = [
     title: "Backpack Laptop Bag with USB Charging Port",
     price: "₹1,199",
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80",
-    store: "amazon",
-    affiliateLink: "https://amazon.in",
+    store: "Flipkart",
+    affiliateLink: "https://Flipkart.in",
     category: "Bags",
   },
   {
@@ -87,8 +87,8 @@ export const products: Product[] = [
     title: "Portable Bluetooth Speaker - Waterproof",
     price: "₹1,899",
     image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80",
-    store: "amazon",
-    affiliateLink: "https://amazon.in",
+    store: "Flipkart",
+    affiliateLink: "https://Flipkart.in",
     category: "Electronics",
   },
   {
@@ -114,12 +114,12 @@ export const products: Product[] = [
     title: "Wireless Mouse - Ergonomic Design",
     price: "₹599",
     image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&q=80",
-    store: "amazon",
-    affiliateLink: "https://amazon.in",
+    store: "Flipkart",
+    affiliateLink: "https://Flipkart.in",
     category: "Electronics",
   },
 ];
 
-export const getProductsByStore = (store: "amazon" | "myntra" | "meesho") => {
+export const getProductsByStore = (store: "Flipkart" | "myntra" | "meesho") => {
   return products.filter((product) => product.store === store);
 };

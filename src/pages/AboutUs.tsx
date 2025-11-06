@@ -47,7 +47,7 @@ const AboutUs = () => {
                 <h2 className="text-2xl font-bold mb-4">Who We Are</h2>
                 <p className="text-lg opacity-95">
                   DealHub is a comprehensive affiliate marketing platform that aggregates the best deals 
-                  from top e-commerce stores including Amazon, Myntra, and Meesho. We make online shopping 
+                  from top e-commerce stores including Flipkart, Myntra, and Meesho. We make online shopping 
                   easier by bringing all the deals to one place, saving you time and money.
                 </p>
               </div>

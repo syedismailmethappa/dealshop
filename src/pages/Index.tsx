@@ -37,7 +37,7 @@ const Index = () => {
               Discover Best Deals Across Top Stores
             </h1>
             <p className="text-lg md:text-xl mb-8 opacity-95 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              Compare prices from Amazon, Myntra, and Meesho - All in one place
+              Compare prices from Flipkart, Myntra, and Meesho - All in one place
             </p>
             <div className="flex gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <TrendingUp className="w-6 h-6 animate-pulse" />

@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { getProductsByStore } from "@/data/products";
 
-const AmazonProducts = () => {
+const FlipkartProducts = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const amazonProducts = getProductsByStore("amazon");
+  const FlipkartProducts = getProductsByStore("Flipkart");
 
-  const filteredProducts = amazonProducts.filter((product) => {
+  const filteredProducts = FlipkartProducts.filter((product) => {
     const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          product.category.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesSearch;
@@ -21,7 +21,7 @@ const AmazonProducts = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Amazon Header */}
+      {/* Flipkart Header */}
       <section className="bg-gradient-to-r from-[#FF9900] to-[#FFB84D] text-white py-12">
         <div className="container mx-auto px-4">
           <Button variant="secondary" size="sm" asChild className="mb-4">
@@ -35,7 +35,7 @@ const AmazonProducts = () => {
               <span className="text-2xl font-bold text-[#FF9900]">a</span>
             </div>
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold">Amazon Products</h1>
+              <h1 className="text-4xl md:text-5xl font-bold">Flipkart Products</h1>
               <p className="text-lg opacity-95">Discover amazing deals on electronics and more</p>
             </div>
           </div>
@@ -50,7 +50,7 @@ const AmazonProducts = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
               <Input
                 type="text"
-                placeholder="Search Amazon products..."
+                placeholder="Search Flipkart products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -64,7 +64,7 @@ const AmazonProducts = () => {
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-foreground mb-2">
-            All Amazon Products
+            All Flipkart Products
           </h2>
           <p className="text-muted-foreground">
             Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
@@ -95,4 +95,4 @@ const AmazonProducts = () => {
   );
 };
 
-export default AmazonProducts;
+export default FlipkartProducts;

@@ -54,19 +54,19 @@ const ContactUs = () => {
     {
       icon: Mail,
       title: "Email Us",
-      content: "support@dealhub.com",
-      link: "mailto:support@dealhub.com",
+      content: "syedmethappa0987@gmail.com.com",
+      link: "mailto:syedmethappa0987@gmail.com.com",
     },
     {
       icon: Phone,
       title: "Call Us",
-      content: "+91 12345 67890",
-      link: "tel:+911234567890",
+      content: "+91 9344071692",
+      link: "tel:+919344071692",
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      content: "Mumbai, Maharashtra, India",
+      content: "Chennai, India",
       link: null,
     },
   ];
