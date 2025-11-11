@@ -61,7 +61,7 @@ const Payment = () => {
                 <div>
                   <h3 className="text-lg font-semibold mb-2">For Shoppers</h3>
                   <p className="text-muted-foreground">
-                    When you click on a product link and make a purchase on Amazon, Myntra, or Meesho, 
+                    When you click on a product link and make a purchase on flipkart, Myntra, or Meesho, 
                     you'll complete the payment directly on their secure platforms. We do not handle any 
                     payment processing. All transactions are protected by the respective store's security measures.
                   </p>

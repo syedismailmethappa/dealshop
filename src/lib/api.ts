@@ -1,7 +1,20 @@
 // Remove trailing slash from base URL to avoid double slashes
+// Ensure URL is HTTPS to avoid mixed content issues
 const getApiBaseUrl = () => {
   const url = import.meta.env.VITE_API_BASE_URL || 'https://fullstack-dealshop2.onrender.com';
-  const baseUrl = url.endsWith('/') ? url.slice(0, -1) : url;
+  let baseUrl = url.endsWith('/') ? url.slice(0, -1) : url;
+  
+  // Force HTTPS if URL starts with http:// (avoid mixed content)
+  if (baseUrl.startsWith('http://')) {
+    console.warn('API URL uses HTTP, converting to HTTPS to avoid mixed content issues');
+    baseUrl = baseUrl.replace('http://', 'https://');
+  }
+  
+  // Ensure URL starts with https://
+  if (!baseUrl.startsWith('https://') && !baseUrl.startsWith('http://localhost')) {
+    baseUrl = `https://${baseUrl}`;
+  }
+  
   console.log('API Base URL:', baseUrl);
   return baseUrl;
 };
@@ -29,19 +42,45 @@ class ApiClient {
 
   private async request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
-    const response = await fetch(url, {
-      ...options,
-      headers: {
-        'Content-Type': 'application/json',
-        ...options?.headers,
-      },
-    });
+    
+    try {
+      const response = await fetch(url, {
+        ...options,
+        headers: {
+          'Content-Type': 'application/json',
+          ...options?.headers,
+        },
+      });
 
-    if (!response.ok) {
-      throw new Error(`API error: ${response.statusText}`);
+      if (!response.ok) {
+        const errorText = await response.text().catch(() => response.statusText);
+        console.error(`API Error [${response.status}]:`, {
+          url,
+          status: response.status,
+          statusText: response.statusText,
+          body: errorText,
+        });
+        throw new Error(`API error [${response.status}]: ${response.statusText}. ${errorText}`);
+      }
+
+      return response.json();
+    } catch (error) {
+      // Enhanced error handling for network issues
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        console.error('Network error - possible causes:', {
+          url,
+          message: error.message,
+          possibleCauses: [
+            'CORS issue - check backend CORS settings',
+            'Mixed content - ensure URL uses HTTPS',
+            'Backend not responding - check Render logs',
+            'SSL certificate issue - verify certificate validity'
+          ]
+        });
+        throw new Error(`Network error: Failed to connect to ${url}. Check CORS, HTTPS, and backend status.`);
+      }
+      throw error;
     }
-
-    return response.json();
   }
 
   async getProducts(): Promise<Product[]> {

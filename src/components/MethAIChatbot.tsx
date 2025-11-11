@@ -128,7 +128,8 @@ export const MethAIChatbot = () => {
         body: {
           message: input,
           sessionId: sessionId,
-          imageUrl: imageToSend
+          imageUrl: imageToSend,
+          store: "Flipkart"
         }
       });
 
@@ -229,7 +230,7 @@ export const MethAIChatbot = () => {
                 <div className="text-center text-muted-foreground py-8">
                   <MessageCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
                   <p className="text-sm">Hi! I'm MethAI, your shopping assistant.</p>
-                  <p className="text-xs mt-2">Ask me about products or upload an image!</p>
+                  <p className="text-xs mt-2">Ask me about Flipkart products or upload an image!</p>
                 </div>
               )}
               {messages.map((message, index) => (
@@ -304,7 +305,7 @@ export const MethAIChatbot = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-                placeholder="Ask about products..."
+                placeholder="Ask about Flipkart products..."
                 disabled={isLoading}
               />
               <Button onClick={sendMessage} disabled={isLoading || (!input.trim() && !uploadedImage)}>
