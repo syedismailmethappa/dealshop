@@ -5,7 +5,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { MethAIChatbot } from "@/components/MethAIChatbot";
 import { Search, TrendingUp } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import heroBanners from "@/assets/hero-banners.jpg";
+import heroBanners from "@/assets/hero-banner.jpg";
 import { apiClient, Product } from "@/lib/api";
 
 const Index = () => {
